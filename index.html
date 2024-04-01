@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free Web tutorials">
+    <meta name="keywords" content="HTML,CSS,JavaScript">
+    <meta name="author" content="Ranjan Upadhyay">
+    <title>percentageCalculator - 2024 | HTML,CSS,JavaScript</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <!-- percentageCalculatorArea-Start -->
+    <div class="container">
+        <!-- percentageCalculatorArea-Inner-Start -->
+        <div class="row">
+            <h1>Percentage Calculator</h1>
+            <div class="flex-row-col">
+                <input type="number" required id="first-input-box" placeholder="X"><br /><span>%of</span><br />
+                <input type="number" required id="secound-input-box" placeholder="Y"><br /><span>is</span><br />
+                <input type="number" readonly id="third-input-box" placeholder="Z"><br />
+            </div>
+            <!-- percentageResultArea-Start -->
+            <p id="result"></p>
+            <!-- percentageResultArea-End -->
+            <!-- percentageCalculatorArea-Btn-Start -->
+            <div class="percentageBtn">
+                <button id="calculateBtn" onclick="myFunction()">Calculate</button>
+            </div>
+            <!-- percentageCalculatorArea-Btn-End -->
+        </div>
+        <!-- percentageCalculatorArea-Inner-End -->
+    </div>
+    <!-- percentageCalculatorArea-End -->
+    <script>
+        let z = document.getElementById("third-input-box");
+        let percentageResult = document.getElementById("result");
+        let calculatePercentageBtn = document.getElementById("calculateBtn");
+        calculatePercentageBtn.addEventListener("click", () => {
+            let xvalue = parseFloat(document.getElementById("first-input-box").value);
+            let yvalue = parseFloat(document.getElementById("secound-input-box").value);
+            if (!isNaN(xvalue) && !isNaN(yvalue)) {
+                z.value = ((xvalue * yvalue) / 100).toFixed(2);
+                percentageResult.innerHTML = `<strong>${xvalue}</strong><em> % of</em><strong> ${yvalue}</strong><em> is </em><strong><mark> ${z.value} </mark></span>`
+            }
+            else {
+                percentageResult.innerHTML = "Input can not be empty!"
+            }
+        })
+    </script>
+</body>
+
+</html>
